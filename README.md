@@ -12,13 +12,20 @@ Layer 0: Mouse control
 
 Layer 1: Volume control + Led brightness
 
-Pats Used:
+Parts Used:
+
 Seeed XIAO RP2040
+
 4x MX-Style switches
+
 2x EC11 Rotary encoders
+
 4x white blank DSA keycaps
+
 4x SK6812 MINI-E LEDs
+
 4x M3x16mm screws
+
 4x M3x5mx4mm heatset inserts
 
 <img width="985" height="617" alt="image" src="https://github.com/user-attachments/assets/a08266fb-c65c-44a3-95ba-a71d44c25a32" />
