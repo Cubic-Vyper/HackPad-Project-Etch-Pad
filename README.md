@@ -28,6 +28,8 @@ Seeed XIAO RP2040
 
 4x M3x5mx4mm heatset inserts
 
+
+
 This is the assembled model of my hackpad and what it should look like:
 
 <img width="985" height="617" alt="image" src="https://github.com/user-attachments/assets/a08266fb-c65c-44a3-95ba-a71d44c25a32" />
