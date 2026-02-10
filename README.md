@@ -37,12 +37,12 @@ This is the assembled model of my hackpad and what it should look like:
 
 Schematic Screenshot:
 
-<img width="1189" height="699" alt="image" src="https://github.com/user-attachments/assets/4c063d6d-8e07-464c-b437-4224806ed883" />
+<img width="1345" height="614" alt="image" src="https://github.com/user-attachments/assets/eb8012e0-c1f6-4f59-9cf5-4f2d4359ee6d" />
 
 
 PCB Screenshot:
 
-<img width="895" height="583" alt="image" src="https://github.com/user-attachments/assets/d7a243c8-aad4-4b4e-b707-a7f0980f3eb6" />
+<img width="1028" height="660" alt="image" src="https://github.com/user-attachments/assets/fa4c1336-b22f-4aa4-bdb9-e6ce0978de60" />
 
 
 Bottom half of the case:
