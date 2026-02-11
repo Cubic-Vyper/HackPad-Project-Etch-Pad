@@ -42,7 +42,7 @@ Schematic Screenshot:
 
 PCB Screenshot:
 
-<img width="1028" height="660" alt="image" src="https://github.com/user-attachments/assets/fa4c1336-b22f-4aa4-bdb9-e6ce0978de60" />
+<img width="1046" height="672" alt="image" src="https://github.com/user-attachments/assets/5f55b40a-fca6-4233-a8ca-c759e07a00c9" />
 
 
 Bottom half of the case:
