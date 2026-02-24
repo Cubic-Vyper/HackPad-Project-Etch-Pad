@@ -140,8 +140,8 @@ keyboard.matrix = KeysScanner(
 
 # Encoder pins - FIXED: Using safe pins, NO A0!
 encoder_handler.pins = (
-    (board.D0, board.D1, board.D2),   # First encoder: D0(A), D1(B), D2(button)
-    (board.D3, board.D4, board.D5),    # Second encoder: D3(A), D4(B), D5(button)
+    (board.D6, board.D7, board.D0),   # First encoder: D0(A), D1(B), D2(button)
+    (board.D1, board.D2, board.D3),    # Second encoder: D3(A), D4(B), D5(button)
 )
 
 # Define encoder actions - EXACTLY as you wanted
