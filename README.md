@@ -2,6 +2,8 @@
 This is my repository for my Hackpad called "Etch-Pad".
 This HackPad has two layers. In the first, the rotary encoders control the mouse like an Etch-n-Sketch, and the switchs have some useful macros. On the second layer the rotary encoders control volume and led brightness, and the switchs have some useful macros.
 
+Demo:https://www.youtube.com/watch?v=J-VSeQiJwGQ&feature=youtu.be
+
 Buttons:
 Layer 0: Screenshot, Paste, Parrot, Space
 
