@@ -12,35 +12,43 @@ from kmk.modules.rapidfire import RapidFire
 from kmk.modules import Module
 from kmk.extensions.RGB import RGB, AnimationModes
 from kmk.extensions.media_keys import MediaKeys
+from kmk.extensions import Extension
 
-# Small delay for USB stability
+
 time.sleep(1.5)
-print("=" * 50)
-print("CUSTOM KEYBOARD - RESTORED ORIGINAL LAYOUT")
-print("=" * 50)
 
 keyboard = KMKKeyboard()
 
-# RGB - FIXED: num_pixels=1 for built-in LED
+# RGB
 rgb = RGB(
-    pixel_pin=board.D4,
+    pixel_pin=board.D4 ,
     num_pixels=4,
     val_limit=100,
     hue_default=0,
     sat_default=255,
     val_default=50,
     animation_mode=AnimationModes.RAINBOW,
-    animation_speed=2,
+    animation_speed=5,
     rgb_order=(1, 0, 2),
 )
 
-# Layer RGB indicators - FIXED: Now inherits from Module
-class LayerRGBMode(Module):
+# Layer RGB indicators
+class LayerRGBMode(Extension):
     def __init__(self, rgb):
         self.rgb = rgb
         self.current_layer = None
     
-    def after_matrix_scan(self, keyboard):
+    def on_runtime_enable(self, keyboard):
+        return
+    
+    def on_runtime_disable(self, keyboard):
+        return
+    
+    def during_bootup(self, keyboard):
+        return
+    
+    def before_matrix_scan(self, keyboard):
+        # Check for layer changes before scanning keys
         if keyboard.active_layers:
             new_layer = keyboard.active_layers[0]
         else:
@@ -49,6 +57,22 @@ class LayerRGBMode(Module):
         if new_layer != self.current_layer:
             self.current_layer = new_layer
             self.update_rgb_mode()
+    
+    def after_matrix_scan(self, keyboard):
+        # Also check after scanning to catch any changes
+        pass
+    
+    def before_hid_send(self, keyboard):
+        pass
+    
+    def after_hid_send(self, keyboard):
+        pass
+    
+    def on_powersave_enable(self, keyboard):
+        pass
+    
+    def on_powersave_disable(self, keyboard):
+        pass
     
     def update_rgb_mode(self):
         if self.current_layer == 0:
@@ -59,7 +83,9 @@ class LayerRGBMode(Module):
             self.rgb.animation_mode = AnimationModes.SWIRL
         self.rgb.show()
 
-# Module instances
+
+# Modules
+layer_rgb_mode = LayerRGBMode(rgb)
 macros = Macros()
 layers = Layers()
 holdtap = HoldTap()
@@ -67,18 +93,19 @@ holdtap.tap_time = 1250  # 1.25 seconds
 encoder_handler = EncoderHandler()
 mouse_keys = MouseKeys()
 rapidfire = RapidFire()
-layer_rgb_mode = LayerRGBMode(rgb)
 
-# IMPORTANT: Add RapidFire FIRST so KC.RF is available
+
+
 keyboard.modules = [rapidfire, layers, holdtap, encoder_handler, macros, mouse_keys, layer_rgb_mode]
 keyboard.extensions.append(MediaKeys())
 keyboard.extensions.append(rgb)
+keyboard.extensions.append(layer_rgb_mode)
 
-# Custom keys - FIXED: All macros use KC.MACRO (not KC.Macro)
-SPAM_E = KC.RF(
-    KC.E, 
+# Custom keys
+SPAM_CLICK = KC.RF(
+    KC.MB_LMB, 
     timeout=200, 
-    interval=100, 
+    interval=70, 
     enable_interval_randomization=True, 
     randomization_magnitude=25, 
     toggle=True
@@ -94,18 +121,18 @@ SCREENSHOT = KC.MACRO(
 
 RICKROLL = KC.MACRO(
     # Open Run dialog
-    Press(KC.LWIN), Tap(KC.R), Release(KC.LWIN), 600,
+    Press(KC.LWIN), Tap(KC.R), Release(KC.LWIN), 1500,
     # Type cmd and press enter
     Tap(KC.C), Tap(KC.M), Tap(KC.D), Tap(KC.ENTER), 2500,
     # Type the command
     Tap(KC.C), Tap(KC.U), Tap(KC.R), Tap(KC.L), Tap(KC.SPACE), Tap(KC.A), Tap(KC.S),
     Tap(KC.C), Tap(KC.I), Tap(KC.I), Tap(KC.DOT), Tap(KC.L), Tap(KC.I), Tap(KC.V), Tap(KC.E),
-    Tap(KC.SLASH), Tap(KC.R), Tap(KC.I), Tap(KC.C), Tap(KC.K), Tap(KC.ENTER)
+    Tap(KC.SLASH), Tap(KC.R), Tap(KC.I), Tap(KC.C), Tap(KC.K), Tap(KC.ENTER), Tap(KC.F11)
 )
 
 PARROT = KC.MACRO(
     # Open Run dialog
-    Press(KC.LWIN), Tap(KC.R), Release(KC.LWIN), 600,
+    Press(KC.LWIN), Tap(KC.R), Release(KC.LWIN), 1500,
     # Type cmd and press enter
     Tap(KC.C), Tap(KC.M), Tap(KC.D), Tap(KC.ENTER), 2500,
     # Type the command
@@ -115,12 +142,12 @@ PARROT = KC.MACRO(
 
 HACK = KC.MACRO(
     # Open Run dialog
-    Press(KC.LWIN), Tap(KC.R), Release(KC.LWIN), 600,
+    Press(KC.LWIN), Tap(KC.R), Release(KC.LWIN), 1500,
     # Type cmd and press enter
     Tap(KC.C), Tap(KC.M), Tap(KC.D), Tap(KC.ENTER), 2500,
     # Type the command
     Tap(KC.C), Tap(KC.O), Tap(KC.L), Tap(KC.O), Tap(KC.R), Tap(KC.SPACE), Tap(KC.N2),
-    Tap(KC.ENTER), 600, Tap(KC.D), Tap(KC.I), Tap(KC.R), Tap(KC.SLASH), Tap(KC.S), Tap(KC.ENTER)
+    Tap(KC.ENTER), 600, Tap(KC.D), Tap(KC.I), Tap(KC.R), Tap(KC.SLASH), Tap(KC.S), Tap(KC.ENTER), Tap(KC.F11)
 )
 
 PASTE = KC.MACRO(
@@ -129,8 +156,8 @@ PASTE = KC.MACRO(
     Release(KC.LCTL)
 )
 
-# Define your pins here! - FIXED: Using safe pins
-PINS = [board.D7, board.D8, board.D9, board.D10]  # Keys: D7, D8, D9, D10
+# Define pins
+PINS = [board.D7, board.D8, board.D9, board.D10] 
 
 # Tell kmk we are not using a key matrix
 keyboard.matrix = KeysScanner(
@@ -138,64 +165,49 @@ keyboard.matrix = KeysScanner(
     value_when_pressed=False,
 )
 
-# Encoder pins - FIXED: Using safe pins, NO A0!
+# Encoder pins
 encoder_handler.pins = (
-    (board.D6, board.D7, board.D0),   # First encoder: D0(A), D1(B), D2(button)
-    (board.D1, board.D2, board.D3),    # Second encoder: D3(A), D4(B), D5(button)
+    (board.D5, board.D6, board.D0),   # First encoder
+    (board.D1, board.D2, board.D3),   # Second encoder
 )
 
-# Define encoder actions - EXACTLY as you wanted
+
+encoder_handler.encoder_debounce = 30  # Reduces duplicate signals
+
+encoder_handler.divisor = 2 
+
+# Define encoder actions 
 encoder_handler.map = [
     # Layer 0 - Mouse control
     [
-        (KC.MS_RIGHT, KC.MS_LEFT, KC.MB_LMB),  # First encoder: mouse right/left, left click
-        (KC.MS_UP, KC.MS_DOWN, KC.MB_RMB),     # Second encoder: mouse up/down, right click
+        (KC.MS_RIGHT, KC.MS_LEFT, KC.MB_LMB, 50), #scrol (KC.MW_UP, KC.MW_DN, KC.MB_LMB, 50),
+        (KC.MS_UP, KC.MS_DOWN, KC.MB_RMB, 50),
     ],
     # Layer 1 - Volume + RGB control
     [
-        (KC.VOLU, KC.VOLD, KC.MUTE),           # First encoder: volume up/down, mute
-        (KC.RGB_VAI, KC.RGB_VAD, HACK),        # Second encoder: RGB brightness, HACK macro
+        (KC.VOLU, KC.VOLD, KC.MUTE),
+        (KC.RGB_VAI, KC.RGB_VAD, HACK),
     ],
 ]
 
-# Here you define the buttons corresponding to the pins - EXACTLY as you wanted
-keyboard.keymap = [
-    # Layer 0: Screenshot, Paste, Parrot, Space
+# define the button pins
+keyboard.keymap =    [
+    # Layer 0
     [
         KC.HT(SCREENSHOT, KC.TO(1)),           # Tap: Screenshot, Hold: Layer 1
         PASTE,                                   # Paste macro
         PARROT,                                  # Parrot macro
         KC.SPACE,                                # Space
     ],
-    # Layer 1: Previous track, Play/Pause+Rickroll, Next track, Spam E
+    # Layer 1
     [
         KC.HT(KC.MPRV, KC.TO(0)),               # Tap: Previous track, Hold: Layer 0
         KC.HT(KC.MPLY, RICKROLL),                # Tap: Play/Pause, Hold: Rickroll
-        KC.MNXT,                                  # Next track
-        SPAM_E,                                   # Spam E (RapidFire)
+        KC.HT(KC.MNXT, KC.F11),                                  # Next track
+        SPAM_CLICK,                                   # Spam left click
     ],
 ]
 
-print("=" * 50)
-print("✅ CUSTOM KEYBOARD READY!")
-print("=" * 50)
-print("LAYER 0 (Rainbow RGB):")
-print("  Key 1: Tap=Screenshot, Hold=Layer 1")
-print("  Key 2: Paste (Ctrl+V)")
-print("  Key 3: Parrot macro")
-print("  Key 4: Space")
-print("  Encoder 1: Mouse left/right + left click")
-print("  Encoder 2: Mouse up/down + right click")
-print()
-print("LAYER 1 (Swirl RGB):")
-print("  Key 1: Tap=Previous track, Hold=Layer 0")
-print("  Key 2: Tap=Play/Pause, Hold=Rickroll")
-print("  Key 3: Next track")
-print("  Key 4: Spam E (RapidFire)")
-print("  Encoder 1: Volume up/down + mute")
-print("  Encoder 2: RGB brightness + HACK macro")
-print("=" * 50)
-
-# Start kmk!
+# Start kmk
 if __name__ == '__main__':
     keyboard.go()
