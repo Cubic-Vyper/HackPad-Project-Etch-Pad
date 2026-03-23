@@ -34,7 +34,9 @@ ________________________________________________________________________________
 
 This is the assembled model of my hackpad and what it should look like:
 
-<img width="985" height="617" alt="image" src="https://github.com/user-attachments/assets/a08266fb-c65c-44a3-95ba-a71d44c25a32" />
+<img width="931" height="542" alt="EtchPad_render" src="https://github.com/user-attachments/assets/9e351a45-7175-4402-9dd4-b384c9e7d283" />
+
+<img width="922" height="559" alt="image" src="https://github.com/user-attachments/assets/0689eaaf-be89-4cfd-ba8a-2b9282790d82" />
 
 
 Schematic Screenshot:
@@ -54,11 +56,44 @@ Bottom half of the case:
 
 Top plate of the case:
 
-<img width="832" height="476" alt="image" src="https://github.com/user-attachments/assets/14cb8b55-c38d-4c91-bf31-5e39af66eca2" />
+
+<img width="933" height="508" alt="image" src="https://github.com/user-attachments/assets/f43800be-308f-4358-92d8-12a8433f432e" />
+
 
 
 Assembled case:
 
-<img width="823" height="559" alt="image" src="https://github.com/user-attachments/assets/c5215126-d0bd-4d3a-a128-4da63c5d9e13" />
+
+<img width="906" height="482" alt="image" src="https://github.com/user-attachments/assets/a182597b-b335-4ad6-ab65-cebc4009f389" />
+
+
+
+to assemble the case, first collect all of your parts:
+
+<img width="975" height="731" alt="image" src="https://github.com/user-attachments/assets/75da3bd5-8615-4baf-985f-c6213bcdf200" />
+
+next insert the assembled PCB into the bottem half of the case:
+
+<img width="753" height="559" alt="image" src="https://github.com/user-attachments/assets/effaa2d1-396f-4456-98ef-573f604f293a" />
+
+
+
+then place the top plate on and screw it together:
+
+<img width="849" height="599" alt="image" src="https://github.com/user-attachments/assets/f2cc6005-a241-4072-8f29-def594fc09b4" />
+
+
+<img width="741" height="495" alt="image" src="https://github.com/user-attachments/assets/c64583df-b31a-49a8-9f34-9262f61555c3" />
+
+
+finnaly attach the keycaps and the enchoder knobs:
+
+<img width="975" height="731" alt="image" src="https://github.com/user-attachments/assets/a20d8195-c1b2-41fb-a6c3-a8b1c7aad83e" />
+
+
+plug it up:
+
+
+<img width="975" height="731" alt="image" src="https://github.com/user-attachments/assets/00a84377-c3b1-4429-bdd8-1ccdc90e8a03" />
 
 
