@@ -4,6 +4,8 @@ This HackPad has two layers. In the first, the rotary encoders control the mouse
 
 Demo:https://www.youtube.com/watch?v=J-VSeQiJwGQ&feature=youtu.be
 
+Blueprint Page:https://blueprint.hackclub.com/projects/10732
+
 Buttons:
 Layer 0: Screenshot, Paste, Parrot, Space
 
