@@ -1,8 +1,6 @@
 # HackPad-Project-Etch-Pad
 This is my repository for my Hackpad called "Etch-Pad".
-This HackPad has two layers. In the first, the rotary encoders control the mouse like an Etch-n-Sketch, and the switchs have some useful macros. On the second layer the rotary encoders control volume and led brightness, and the switchs have some useful macros.
-
-Demo:https://www.youtube.com/watch?v=J-VSeQiJwGQ&feature=youtu.be
+This HackPad has two layers. In the first, the rotary encoders control the mouse like an Etch-n-Sketch, and the switchs have some useful macros. On the second layer the rotary encoders control volume and led brightness, and the switches have some useful macros.
 
 Blueprint Page:https://blueprint.hackclub.com/projects/10732
 
@@ -36,7 +34,7 @@ ________________________________________________________________________________
 
 This is the assembled model of my hackpad and what it should look like:
 
-<img width="931" height="542" alt="EtchPad_render" src="https://github.com/user-attachments/assets/9e351a45-7175-4402-9dd4-b384c9e7d283" />
+<img width="975" height="731" alt="image" src="https://github.com/user-attachments/assets/a20d8195-c1b2-41fb-a6c3-a8b1c7aad83e" />
 
 <img width="922" height="559" alt="image" src="https://github.com/user-attachments/assets/0689eaaf-be89-4cfd-ba8a-2b9282790d82" />
 
@@ -51,22 +49,6 @@ PCB Screenshot:
 <img width="1046" height="672" alt="image" src="https://github.com/user-attachments/assets/5f55b40a-fca6-4233-a8ca-c759e07a00c9" />
 
 
-Bottom half of the case:
-
-<img width="977" height="604" alt="image" src="https://github.com/user-attachments/assets/5cb9d49d-4f7a-435c-83f0-372920afe6d2" />
-
-
-Top plate of the case:
-
-
-<img width="933" height="508" alt="image" src="https://github.com/user-attachments/assets/f43800be-308f-4358-92d8-12a8433f432e" />
-
-
-
-Assembled case:
-
-
-<img width="906" height="482" alt="image" src="https://github.com/user-attachments/assets/a182597b-b335-4ad6-ab65-cebc4009f389" />
 
 
 
